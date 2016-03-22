@@ -1,0 +1,7 @@
+THIS FILE IS NOT USED YET SO BE CAREFUL!
+
+forvoUsername = username
+forvoPassword = password
+translatorDirectory = "C:/Translator/"
+downloadFolder = "PronunciationDownloads/"
+pickleFilename = "PickledPTD.pkl"
