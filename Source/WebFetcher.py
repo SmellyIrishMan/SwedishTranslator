@@ -9,7 +9,6 @@ from PronuncDownloader import DownloadPronunciations
 pickleFilename = "PickledPTD.pkl"
 
 wordToFind = sys.argv[1]
-#wordToFind = "vilja"
 
 print ("We're looking for " + wordToFind)
 

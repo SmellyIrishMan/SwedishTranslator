@@ -1,15 +1,20 @@
 # -*- coding: utf-8 -*-
 import os
 import sys
+import ConfigParser
 import pickle
 
 from subprocess import Popen
 from anki import Collection
 
-colLoc = "C:/Users/AAAA/Documents/Anki/AAAA/collection.anki2"
-translatorFolder = "C:/Users/AAAA/Desktop/Swedish/Translator/"
-pickleFilename = "PickledPTD.pkl"
-pronuncLoc = translatorFolder + "PronunciationDownloads/"
+Config = ConfigParser.ConfigParser()
+Config.read("TranslatorConfig.ini")
+#print(Config.sections())
+
+colLoc = Config.get("Translator", "ankiCollectionDir")
+translatorFolder = Config.get("Translator", "directory")
+pickleFilename = Config.get("Translator", "pickleFilename")
+pronuncLoc = Config.get("Translator", "downloadFolder")
 
 addNewEntryKey = "A"
 exitKey = "X"
@@ -42,7 +47,7 @@ while newWord.upper() != exitKey.upper():
         phrase = deck.getNote(card.nid)["Phrase"]
         translation = deck.getNote(card.nid)["Translation"]
         pronuncFiles = deck.getNote(card.nid)["Pronunciation"]
-        print "\t" + str(i) + "; " + phrase + " - " + translation
+        print("\t" + str(i) + "; " + phrase + " - " + translation)
         card = deck.getCard(cardID)
         i = i + 1
 
